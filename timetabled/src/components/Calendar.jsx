@@ -24,6 +24,7 @@ const Calendar = ()=>{
 						<Event event='Fancy Dinner 🎩' color ='green'/>
 						<td></td>
 						<td></td>
+						<Event event='Fancy Dinner 🎩' color ='green'/>
 						<td></td>
 						<td></td>
 						<td></td>
