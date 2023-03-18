@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import RecipeChoices from './recipeChoices';
-
+import drinks from './drinks.json';
 
 const BaristaForm = () =>{
 	const [inputs,setInputs] = useState({
@@ -16,13 +16,29 @@ const BaristaForm = () =>{
 		'milk': ['cow','oat','goat','almond','none'],
 		'blended': ['yes','turbo','no']
 	}
+	// setCurrentDrink and setTrueReciep
+
+	const [currentDrink,setCurrentDrink] = useState('');
+	const [trueRecipie,setTrueRecipe] = useState('');
+
 	// This is the functions or the  both buttons
 	const onCheckAnswer = ()=>{
 			console.log("clicked");
 	}
-	const onNewDrink =() =>{
+	const getNextDrink = () =>{
+		let randomDrinkIndex = Math.floor(Math.random() * drinks.drinks.length);
+		setCurrentDrink(drinks.drinks[randomDrinkIndex].name)
+		setTrueRecipe(drinks.drinks[randomDrinkIndex].ingredients)
 
-	
+	}
+	const onNewDrink =() =>{
+		setInputs({
+			'temperature':'',
+			'milk':'',
+			'syrup':'',
+			'blended':'',
+		})
+		getNextDrink();
 	}
 
 	return(
